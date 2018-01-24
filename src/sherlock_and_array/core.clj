@@ -4,9 +4,18 @@
 
 
 (defn solve
-  "I don't do a whole lot."
+  "Solve sequence s of n elements in size. This function processes a single sequence and should
+  output a single result to stdout (eg, using println)"
   [s]
-  (comment Your code goes here))
+  (if
+    (some boolean
+      (map
+        (fn [i]
+          (= (reduce + (take i s))
+             (reduce + (drop (inc i) s))))
+        (range (count s))))
+    (println "YES")
+    (println "NO")))
 
 
 (defn read-int
