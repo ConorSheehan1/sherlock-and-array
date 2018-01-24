@@ -2,18 +2,25 @@
   (:require
     [clojure.string :as string]))
 
+(defn sum
+  "Sums a sequence of numbers"
+  [s]
+  (reduce + s))
+
+(defn split
+  "Splits a sequence into two"
+  [pivot s]
+  (let [[left right] (split-at pivot s)]
+    [left (drop 1 right)]))
 
 (defn solve
   "Solve sequence s of n elements in size. This function processes a single sequence and should
   output a single result to stdout (eg, using println)"
   [s]
-  (if
-    (some boolean
-      (map
-        (fn [i]
-          (= (reduce + (take i s))
-             (reduce + (drop (inc i) s))))
-        (range (count s))))
+  (if (some true?
+        (for [i (range (count s))]
+          (let [[left right] (split i s)]
+            (= (sum left) (sum right)))))
     (println "YES")
     (println "NO")))
 
