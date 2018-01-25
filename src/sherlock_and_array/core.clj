@@ -15,13 +15,16 @@
 
 (defn solve
   [s]
-  (let [[a] (range (count s))]
+  (let [a (range (count s))]
     ;(println a)
-    ;(if (any? (map is-even)))
-
-    (if (true? (is-even s 0))
+    (if (any? (map (fn [x] (is-even s x)) a))
       (println "YES")
-      (println "NO"))
+      (println "NO")
+    )
+
+    ;(if (true? (is-even s 0))
+    ;  (println "YES")
+    ;  (println "NO"))
   )
 )
 
