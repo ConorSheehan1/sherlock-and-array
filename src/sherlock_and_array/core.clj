@@ -3,9 +3,8 @@
     [clojure.string :as string]))
 
 (defn is-even [s i]
+  ; split the array into everything before i and everything after i+1
   (let [[left right] (split-at i s)]
-    ;(println s)
-    ;(println i)
     (if (=(reduce + left) (reduce + (drop 1 right)))
       true
       false
@@ -13,12 +12,10 @@
   )
 )
 
-
-
 (defn solve
   [s]
-  (let [a (range (count s))]
-    (if (some true? (map (fn [x] (is-even s x)) a))
+  (let [indexes (range (count s))]
+    (if (some true? (map (fn [x] (is-even s x)) indexes))
       (println "YES")
       (println "NO")
     )
