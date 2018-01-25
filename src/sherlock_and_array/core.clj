@@ -5,18 +5,24 @@
 (defn is-even [s i]
   (let [[left right] (split-at i s)]
     (if (=(reduce + left) (reduce + right))
-      (println "YES")
-      (println "NO")
+      true
+      false
     )
   )
-  ;(println (reduce + left))
 )
 
+
+
 (defn solve
-  "I don't do a whole lot."
   [s]
-  
-  (is-even s 0)
+  (let [[a] (range (count s))]
+    ;(println a)
+    ;(if (any? (map is-even)))
+
+    (if (true? (is-even s 0))
+      (println "YES")
+      (println "NO"))
+  )
 )
 
 
