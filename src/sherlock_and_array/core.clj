@@ -6,7 +6,7 @@
   (let [[left right] (split-at i s)]
     ;(println s)
     ;(println i)
-    (if (=(reduce + left) (reduce + right))
+    (if (=(reduce + left) (reduce + (drop 1 right)))
       true
       false
     )
@@ -18,16 +18,10 @@
 (defn solve
   [s]
   (let [a (range (count s))]
-    ;(println a)
-    ;(println (map (fn [x] (is-even s x)) a))
-    (if (some true? [(map (fn [x] (is-even s x)) a)])
+    (if (some true? (map (fn [x] (is-even s x)) a))
       (println "YES")
       (println "NO")
     )
-
-    ;(if (true? (is-even s 0))
-    ;  (println "YES")
-    ;  (println "NO"))
   )
 )
 
