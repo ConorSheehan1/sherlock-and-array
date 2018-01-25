@@ -2,11 +2,22 @@
   (:require
     [clojure.string :as string]))
 
+(defn is-even [s i]
+  (let [[left right] (split-at i s)]
+    (if (=(reduce + left) (reduce + right))
+      (println "YES")
+      (println "NO")
+    )
+  )
+  ;(println (reduce + left))
+)
 
 (defn solve
   "I don't do a whole lot."
   [s]
-  (comment Your code goes here))
+  
+  (is-even s 0)
+)
 
 
 (defn read-int
