@@ -19,8 +19,8 @@
   [s]
   (let [a (range (count s))]
     ;(println a)
-    (println (map (fn [x] (is-even s x)) a))
-    (if (some [(map (fn [x] (is-even s x)) a)])
+    ;(println (map (fn [x] (is-even s x)) a))
+    (if (some true? [(map (fn [x] (is-even s x)) a)])
       (println "YES")
       (println "NO")
     )
