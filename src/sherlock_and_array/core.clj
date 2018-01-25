@@ -4,6 +4,8 @@
 
 (defn is-even [s i]
   (let [[left right] (split-at i s)]
+    ;(println s)
+    ;(println i)
     (if (=(reduce + left) (reduce + right))
       true
       false
@@ -17,7 +19,8 @@
   [s]
   (let [a (range (count s))]
     ;(println a)
-    (if (any? (map (fn [x] (is-even s x)) a))
+    (println (map (fn [x] (is-even s x)) a))
+    (if (some [(map (fn [x] (is-even s x)) a)])
       (println "YES")
       (println "NO")
     )
